@@ -1,0 +1,10 @@
+- @title = [ @page.title, @page.parent.try(:title)]
+
+- if lookup_context.template_exists?("pages/pages#{@page.url}", [], true)
+  = render :partial => "pages/pages#{@page.url}"
+- else
+  / - siblings = (@page.parent_id.nil?) ? @page.children.ordered : (@page.siblings + [@page]).sort{|a,b| a.lft <=> b.lft}
+
+  %h1= @page.title
+
+  = @page.body.html_safe

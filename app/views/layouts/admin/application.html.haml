@@ -1,0 +1,40 @@
+!!! 5
+%html{:lang => "ru"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= content_for?(:title) ? yield(:title) : "Vipag"
+    = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+
+    / = javascript_include_tag "application"
+    = javascript_include_tag "admin/application"
+    = stylesheet_link_tag "admin/application", :media => "all"
+    / Le fav and touch icons
+    %link{:href => "/favicon.png", :rel => "shortcut icon"}
+  %body
+
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          / %a.brand{ href: "#" } Высший пилотаж
+          .nav-collapse.collapse
+            %ul.nav
+              %li= link_to 'На сайт', root_path
+              / %li= link_to 'Новости', admin_news_index_path
+              / %li= link_to 'Страницы', admin_pages_path
+              / %li= link_to 'Портфолио', admin_portfolio_index_path
+              / %li= link_to 'Заявки', admin_user_requests_path
+              / %li= link_to 'Настройки', admin_settings_path
+              %li= link_to 'Выход', sign_out_path, :method => :delete
+
+    .container-fluid
+      = render 'shared/message'
+      .row-fluid
+        .span12
+          = yield
+
+
+      %footer
+        / &copy; Рекламное агентство &laquo;Высший пилотаж&raquo;, 2012

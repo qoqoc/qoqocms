@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ -s "/home/www/.rvm/environments/ruby-1.9.3-p194@qoqocms" ]]
+then
+  source "/home/www/.rvm/environments/ruby-1.9.3-p194@qoqocms"
+  exec bundle exec unicorn_rails "$@"
+else
+  echo "ERROR: Missing RVM environment file: '/home/www/.rvm/environments/ruby-1.9.3-p194@qoqocms'" >&2
+  exit 1
+fi

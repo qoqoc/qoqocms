@@ -1,0 +1,4 @@
+- flash.each do |key, value|
+  .alert{class: "alert-#{key}"}
+    %button.close(data-dismiss="alert") ×
+    = value

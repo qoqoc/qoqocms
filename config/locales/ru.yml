@@ -1,0 +1,36 @@
+ru:
+  admin:
+    news_controller:
+      created: Новость создана
+      updated: Новость обновлена
+    pages_controller:
+      created: Страница создана
+      updated: Страница обновлена
+      destroy: Страница удалена
+
+  simple_captcha:
+    label: "Введите то, что видите на картинке"
+    message:
+      default: "не сходится с картинкой"
+  activerecord:
+    models:
+      news: Новость
+      user_request: Заявка
+      page: Страница
+    attributes:
+      news:
+        title: Заголовок
+        body: Содержание
+      user_request:
+        name: Имя
+        address: Адрес
+        phones: Телефоны
+        email: E-mail
+        message: Сообщение
+        captcha:  Секретный код
+      page:
+        url: URL
+        title: Заголовок страницы
+        body: Содержание
+        active: Показывать в меню?
+        on_left: Показывать в меню слева?

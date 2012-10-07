@@ -1,0 +1,56 @@
+= form_for [:admin, @page], :html => {:class => 'form-horizontal'}  do |f|
+  - if @page.errors.any?
+    .alert.alert-error
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .control-group
+    = f.label :parent_id, 'Родительская страница', :class => 'control-label'
+    .controls
+      = f.select :parent_id, options_for_pages, :class => 'input x-large'
+
+  %div(style="float:left; width: 540px")
+    .control-group
+      = f.label :url, :class => 'control-label'
+      .controls
+        .input-prepend
+          %span.add-on= "http://#{request.host}/"
+          = f.text_field :url, :class => 'span8'
+
+    .control-group
+      = f.label :title, :class => 'control-label'
+      .controls
+        = f.text_field :title, :class => 'span11'
+
+  %div(style="float:left")
+    .control-group
+      = f.label :active, :class => 'control-label'
+      .controls
+        = f.check_box :active
+
+    / .control-group
+    /   = f.label :on_left, :class => 'control-label'
+    /   .controls
+    /     = f.check_box :on_left
+  .clearfix
+
+  .control-group
+    = f.label :body, :class => 'control-label'
+    .controls
+      = f.text_area :body, :class => 'redactor'
+
+  .form-actions
+    = f.button 'Сохранить', :type => :submit, :class => 'btn btn-primary wymupdate'
+    = link_to 'Вернуться назад', admin_pages_path
+
+
+
+  / .well
+  /   #page_images.clearfix
+
+
+  /       = images_uploader(:download_id => '#page_images', :input_name => 'image_ids[]', :target => Page.new, :autosave => true)
+
+  / = wyminit

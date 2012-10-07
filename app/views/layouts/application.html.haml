@@ -1,0 +1,104 @@
+/ !!! 5
+/ %html{:lang => "ru"}
+/   %head
+/     %meta{:charset => "utf-8"}
+/     %title= [ content_for?(:title) ? yield(:title) : nil, @title ].flatten.compact.join(' | ')
+/     = csrf_meta_tags
+
+/     = stylesheet_link_tag "application", :media => "all"
+
+/     /[if lt IE 9]
+/       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+/     = javascript_include_tag "application"
+/     %link{:href => "/favicon.png", :rel => "shortcut icon"}
+/   %body
+/     = render 'shared/message'
+/     = yield
+
+
+
+
+!!!
+/[if IE 7 ] <html class="ie ie7" lang="en">
+/[if IE 8 ] <html class="ie ie8" lang="en">
+/ [if (gte IE 9)|!(IE)]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}
+    %title= [ content_for?(:title) ? yield(:title) : nil, @title ].flatten.compact.join(' | ')
+    = csrf_meta_tags
+
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
+
+    = stylesheet_link_tag "application", :media => "all"
+
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+    = javascript_include_tag "application"
+    %link{:href => "/favicon.png", :rel => "shortcut icon"}
+
+    / %script{:src => "js/custom.js"}
+    / %script{:src => "js/selectnav.js"}
+    / %script{:src => "js/flexslider.js"}
+    / %script{:src => "js/twitter.js"}
+    / %script{:src => "js/tooltip.js"}
+    / %script{:src => "js/effects.js"}
+    / %script{:src => "js/fancybox.js"}
+    / %script{:src => "js/carousel.js"}
+    / %script{:src => "js/isotope.js"}
+  %body
+    / Wrapper Start
+    #wrapper
+      /
+        Header
+        \==================================================
+      / 960 Container
+      .container.ie-dropdown-fix
+        / Header
+        #header
+          / Logo
+          .eight.columns
+            #logo
+              %a{:href => "#"}
+                Управляющая кампания "Станционная-20"
+                / %img{:alt => "logo", :src => "images/logo.png"}/
+              / #tagline It's time to impress your visitors!
+              .clear
+          / Social / Contact
+          .eight.columns
+            / Contact Details
+            #contact-details
+              %ul
+                %li
+                  %i.mini-ico-envelope
+                  %a{:href => "#"} support@email.com
+                %li
+                  %i.mini-ico-user>
+                  +7 (999) 999 9999
+        / Header / End
+        / Navigation
+        .sixteen.columns
+          #navigation
+            = render 'shared/menu'
+          .clear
+        / Navigation / End
+      / 960 Container / End
+      /
+        Content
+        \==================================================
+      / 960 Container
+      .container
+        / Flexslider
+        .sixteen.columns
+          = yield
+
+    #footer
+      .container
+        .sixteen.columns
+          #footer-bottom
+            © 2012
+            = succeed "." do
+              %a{:href => "#"} Управляющая компания "Станционная-20"
+            #scroll-top-top
+              %a{:href => "#"}
