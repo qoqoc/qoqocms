@@ -13,6 +13,7 @@ Qoqocms::Application.routes.draw do
   match 'sign_out' => 'clearance/sessions#destroy', :as => 'sign_out', :via => :delete
   # match 'sign_up' => 'clearance/users#new', :as => 'sign_up'
 
+  resources :user_requests, :only => [ :create ]
 
   namespace :admin do
     mount RedactorRails::Engine => '/redactor_rails'
@@ -21,6 +22,7 @@ Qoqocms::Application.routes.draw do
       post :order, on: :member
     end
     resources :settings
+    resources :user_requests, :only => [:index, :show, :destroy]
 
     root :to => 'pages#index'
   end

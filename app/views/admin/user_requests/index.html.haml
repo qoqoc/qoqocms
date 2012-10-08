@@ -1,0 +1,25 @@
+%h1 Заявки пользователя
+
+%table.table-condensed.table-striped.table
+  %thead
+    %tr
+      %th Дата создания
+      %th Имя
+      %th Адрес
+      %th Телефоны
+      %th E-mail
+      %th Сообщение
+      %th
+    %tr
+      %th(colspan="6")
+        = will_paginate @user_requests
+  %tbody
+    - @user_requests.each do |user_request|
+      %tr
+        %td= user_request.created_at.strftime('%d.%m.%Y %H:%M:%S')
+        %td= user_request.name
+        %td= user_request.address
+        %td= user_request.phones
+        %td= user_request.email
+        %td= user_request.message
+        %td= link_to 'Удалить', [:admin, user_request], :confirm => 'Удалить?', :method => :delete, :class => 'btn btn-danger'

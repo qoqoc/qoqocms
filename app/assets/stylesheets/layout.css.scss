@@ -439,7 +439,7 @@ html[xmlns] .slides {display: block;}
 /* Headline
 ====================================*/
 .headline {
-	background: url(../images/headline-bg.png) 0 50% repeat-x;
+	background: image_url('headline-bg.png') 0 50% repeat-x;
 	display: block;
 	margin: 30px 0 8px 0;
 }

@@ -1,5 +1,79 @@
-%h1= @page.title
+- @user_request ||= UserRequest.new
 
-= @page.body.html_safe
+.sixteen.columns
+  #page-title
+    %h2= @page.title
+    #bolded-line
 
-sdfs sdf sd
+  %p= @page.body.html_safe
+
+.eight.columns
+  .headline.no-margin
+    %h4 Форма обратной связи
+  .form-spacer
+  / Success Message
+  .success-message
+    .notification.success.closeable
+      %p
+        %span Success!
+        Your message has been sent.
+    -if @user_request.errors.any?
+      .notification.error.closeable
+        %p
+          %span Ошибка!
+          = @user_request.errors.full_messages.join("<br>").html_safe
+  / Form
+  #contact-form
+    = form_for @user_request  do |f|
+      .field
+        = f.label :name do
+          Имя
+          %span *
+        = f.text_field :name
+
+      / .field
+      /   = f.label :address
+      /   = f.text_field :address
+
+      .field
+        = f.label :phones
+        = f.text_field :phones
+
+      .field
+        = f.label :email do
+          E-mail
+          %span *
+        = f.text_field :email
+
+      .field
+        = f.label :message do
+          Сообщение
+          %span *
+        = f.text_area :message
+
+      / .field
+      / # = f.simple_captcha
+
+      .field
+        = f.button 'Отправить', :type => :submit, :id => 'send'
+        .loading
+
+.eight.columns.google-map
+  .headline.no-margin
+    %h4 Карта
+  / Google Maps
+  #googlemaps.google-map.google-map-full{:style => "height:480px"}
+  %script{:src => "http://maps.google.com/maps/api/js?sensor=true"}
+  :javascript
+    jQuery('#googlemaps').gMap({
+      maptype: 'ROADMAP',
+      scrollwheel: false,
+      zoom: 13,
+      markers: [
+        {
+          address: 'Dubna, Russia', // Your Adress Here
+          html: '',
+          popup: false,
+        }
+      ]
+    });

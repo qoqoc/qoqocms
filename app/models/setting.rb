@@ -6,7 +6,14 @@ class Setting < ActiveRecord::Base
 
   class << self
     def get(name, default)
-      val = Rails.cache.fetch(CACHE_KEY % name) { Setting.find_by_name(name).try :value }
+      val = Rails.cache.fetch(CACHE_KEY % name) {
+        setting = Setting.find_or_initialize_by_name(name)
+        if setting.new_record?
+          setting.value = default
+          setting.save
+        end
+        setting.value
+      }
       Rails.cache.delete(CACHE_KEY % name) if val.nil?
       val || default
     end

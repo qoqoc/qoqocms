@@ -51,6 +51,25 @@ ActiveRecord::Schema.define(:version => 20121007102446) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "simple_captcha_data", :force => true do |t|
+    t.string   "key",        :limit => 40
+    t.string   "value",      :limit => 6
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "simple_captcha_data", ["key"], :name => "idx_key"
+
+  create_table "user_requests", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phones"
+    t.string   "email"
+    t.string   "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "encrypted_password", :limit => 128

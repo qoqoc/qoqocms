@@ -9,7 +9,10 @@
   %tbody
     - @settings.each do |setting|
       %tr
-        %td= setting.title
+        %td
+          = setting.name
+          %br
+          = setting.title
         %td= setting.value
         %td
           = link_to 'Редактировать', edit_admin_setting_path(setting), :class => "btn btn-warning"
