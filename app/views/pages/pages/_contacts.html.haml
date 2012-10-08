@@ -11,17 +11,13 @@
   .headline.no-margin
     %h4 Форма обратной связи
   .form-spacer
-  / Success Message
-  .success-message
-    .notification.success.closeable
+
+  = render 'shared/message'
+
+  -if @user_request.errors.any?
+    .notification.error.closeable
       %p
-        %span Success!
-        Your message has been sent.
-    -if @user_request.errors.any?
-      .notification.error.closeable
-        %p
-          %span Ошибка!
-          = @user_request.errors.full_messages.join("<br>").html_safe
+        = @user_request.errors.full_messages.join("<br>").html_safe
   / Form
   #contact-form
     = form_for @user_request  do |f|

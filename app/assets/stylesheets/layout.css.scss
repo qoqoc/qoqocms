@@ -1832,7 +1832,7 @@ blockquote {
 
 /* Table
 ====================================*/
-table.standard-table {
+table {
 	width:100%;
 	border-collapse: separate;
 	border-spacing: 0;
@@ -1842,7 +1842,7 @@ table.standard-table {
 	box-shadow:  0px 1px 1px 0px rgba(180, 180, 180, 0.1);
 }
 
-table.standard-table th {
+table th, table thead td {
 	border: 1px solid #dddddd;
 	border-right: none;
 	background-color: #fafafa;
@@ -1854,22 +1854,22 @@ table.standard-table th {
 	font-weight: bold;
 }
 
-table.standard-table td:last-child {
+table td:last-child {
 	border-right: 1px solid #ddd;
 }
 
-table.standard-table th:last-child {
+table th:last-child {
 	border-right: 1px solid #ddd;
 }
 
-table.standard-table td {
+table td {
 	padding: 10px 15px;
 	border: #e0e0e0 1px solid;
 	border-top: none;
 	border-right: none;
 }
 
-table.standard-table tr:hover td {background-color: #fafafa;}
+table tr:hover td {background-color: #fafafa;}
 
 
 /* Notice

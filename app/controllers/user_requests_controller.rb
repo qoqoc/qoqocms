@@ -4,17 +4,15 @@ class UserRequestsController < ApplicationController
 
   end
 
-  def new
-    @user_request = UserRequest.new
-  end
-
   def create
+    @page = Page.find_by_url('/contacts')
+
     @user_request = UserRequest.new(params[:user_request])
 
-    if @user_request.save_with_captcha
-      redirect_to user_requests_path, notice: 'Ваша заявка отправлена.'
+    if @user_request.save#_with_captcha
+      redirect_to @page.full_url, notice: 'Ваша заявка отправлена.'
     else
-      render action: "new"
+      render "pages/index"
     end
   end
 end
