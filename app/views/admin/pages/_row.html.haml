@@ -1,5 +1,5 @@
 - @pages.find_all{|p| p.parent_id == parent_id}.each do |page|
-  %tr{:class => "#{'muted' unless page.active?}"}
+  %tr{:class => "#{'muted' unless page.active?}", :data => {:id => page.id}}
     %td
       = ("&mdash;&nbsp;"*page.level).html_safe
       = page.url

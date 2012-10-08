@@ -1,9 +1,9 @@
 class Admin::PagesController < Admin::ApplicationController
 
-  before_filter :get_page, :only => [:show, :edit, :update, :destroy]
+  before_filter :get_page, :only => [:show, :edit, :update, :destroy, :order]
 
   def index
-    @pages = Page.all
+    @pages = Page.ordered
   end
 
   def new
@@ -26,6 +26,19 @@ class Admin::PagesController < Admin::ApplicationController
     else
       render action: "edit"
     end
+  end
+
+  def order
+    node = Page.find_by_id(params[:node_id])
+    if node
+      @page.move_to_left_of(node)
+    else
+      @page.move_to_right_of(Page.roots.ordered.last)
+    end
+
+    @pages = Page.ordered
+
+    render partial: 'table'
   end
 
   def destroy

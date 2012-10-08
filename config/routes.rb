@@ -17,7 +17,9 @@ Qoqocms::Application.routes.draw do
   namespace :admin do
     mount RedactorRails::Engine => '/redactor_rails'
 
-    resources :pages
+    resources :pages do
+      post :order, on: :member
+    end
     resources :settings
 
     root :to => 'pages#index'

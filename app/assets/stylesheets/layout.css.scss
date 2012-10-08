@@ -1938,7 +1938,7 @@ table.standard-table tr:hover td {background-color: #fafafa;}
 	*margin-right: .3em;
 	line-height: 48px;
 	vertical-align: text-top;
-	background-image: url("../images/icons/glyphicons.png");
+	background-image: image_url("icons/glyphicons.png");
 	background-position: 48px 48px;
 	background-repeat: no-repeat;
 }
@@ -1949,7 +1949,7 @@ table.standard-table tr:hover td {background-color: #fafafa;}
 }
 
 .ico-white {
-	background-image: url("../images/icons/glyphicons-white.png");
+	background-image: image_url("icons/glyphicons-white.png");
 	opacity: 1;
 }
 
@@ -3403,7 +3403,7 @@ table.standard-table tr:hover td {background-color: #fafafa;}
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../images/icons/glyphicons-mini.png");
+  background-image: image_url("icons/glyphicons-mini.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   opacity: 1;
@@ -3415,7 +3415,7 @@ table.standard-table tr:hover td {background-color: #fafafa;}
 }
 
 .mini-white {
-  background-image: url("../images/icons/glyphicons-mini-white.png");
+  background-image: image_url("icons/glyphicons-mini-white.png");
   opacity: 1;
 }
 

@@ -6,6 +6,8 @@
 // require fupload-rails
 //= require redactor-rails/redactor.min
 // require redactor-rails/ru
+//= require jquery.tablednd_0_5
 
 //= require admin/global
+//= require_tree ./pages
 

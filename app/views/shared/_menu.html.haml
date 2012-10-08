@@ -1,7 +1,8 @@
 %ul#nav
   - menu_pages.each do |page|
-    %li= link_to page.title, page.full_url
-    - if page.children.count > 0
-      %ul
-        - page.children.each do |child|
-          %li= link_to child.title, child.full_url
+    %li
+      = link_to page.title, page.full_url
+      - if page.children.count > 0
+        %ul
+          - page.children.each do |child|
+            %li= link_to child.title, child.full_url

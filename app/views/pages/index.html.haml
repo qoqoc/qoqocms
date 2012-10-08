@@ -5,6 +5,10 @@
 - else
   / - siblings = (@page.parent_id.nil?) ? @page.children.ordered : (@page.siblings + [@page]).sort{|a,b| a.lft <=> b.lft}
 
-  %h1= @page.title
+
+  #page-title
+    %h2= @page.title
+    #bolded-line
+
 
   = @page.body.html_safe

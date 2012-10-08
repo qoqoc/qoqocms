@@ -1,0 +1,9 @@
+%table.table-condensed.table-striped.table
+  %thead
+    %tr
+      %th URL
+      %th Заголовок
+      %th Показывать?
+      %th(style="width: 280px")
+  %tbody
+    = render :partial => 'row', :locals => {:parent_id => nil}
