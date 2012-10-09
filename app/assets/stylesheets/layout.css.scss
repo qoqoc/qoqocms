@@ -21,6 +21,15 @@
 		color: black;
 		font-size: 2em;
 		img{float: left;}
+		position: relative;
+		span {
+			position: absolute;
+			right: -8px;
+			bottom: 0px;
+			background: #72B626;
+			width: 5px;
+			height: 5px;
+		}
 	}
 
 }

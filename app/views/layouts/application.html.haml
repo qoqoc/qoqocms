@@ -30,7 +30,9 @@
           / Logo
           .eight.columns
             #logo
-              = link_to Setting.get('SITE-NAME', 'Управляющая кампания'), root_path
+              = link_to root_path do
+                = Setting.get('SITE-NAME', 'Управляющая кампания')
+                %span
               / %img{:alt => "logo", :src => "images/logo.png"}/
               / #tagline It's time to impress your visitors!
               .clear

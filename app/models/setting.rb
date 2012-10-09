@@ -1,4 +1,6 @@
 class Setting < ActiveRecord::Base
+  attr_accessible :name, :value, :title
+
   validates :name, :presence => true, :uniqueness => true
 
   CACHE_KEY = 'Setting_%s'
