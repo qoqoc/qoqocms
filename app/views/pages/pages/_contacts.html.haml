@@ -57,19 +57,37 @@
 .eight.columns.google-map
   .headline.no-margin
     %h4 Карта
-  / Google Maps
-  #googlemaps.google-map.google-map-full{:style => "height:480px"}
-  %script{:src => "http://maps.google.com/maps/api/js?sensor=true"}
+
+
+
+
+  #ymaps-map{style: "height: 480px;"}
+  / #googlemaps.google-map.google-map-full{:style => "height:480px"}
+  %script{:src => "http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"}
   :javascript
-    jQuery('#googlemaps').gMap({
-      maptype: 'ROADMAP',
-      scrollwheel: false,
-      zoom: 13,
-      markers: [
-        {
-          address: 'Dubna, Russia', // Your Adress Here
-          html: '',
-          popup: false,
+    var current_loc = '#{Setting.get('MAP-LOCATION', 'г. Дубна Московской области, ул. Правды д.33. ком.8')}';
+
+    ymaps.ready(init);
+
+    function init () {
+      var myMap = new ymaps.Map("ymaps-map", {
+        center: [37.149782, 56.735085],
+        zoom: 12,
+        type: "yandex#map"
+      });
+      myCollection = new ymaps.GeoObjectCollection();
+      myMap.controls.add("zoomControl")
+                    .add("mapTools")
+                    .add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
+
+      ymaps.geocode(current_loc, {results: 100}).then(function (res) {
+        myCollection.removeAll();
+        if (res.geoObjects.getLength()) {
+          var point = res.geoObjects.get(0);
+          myCollection.add(point);
+          myMap.geoObjects.add(myCollection);
+          myMap.panTo(point.geometry.getCoordinates());
         }
-      ]
-    });
+      });
+      return false;
+    }

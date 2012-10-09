@@ -1865,7 +1865,8 @@ table th:last-child {
 table td {
 	padding: 10px 15px;
 	border: #e0e0e0 1px solid;
-	border-top: none;
+	// border-top: none;
+	border-collapse: collapse;
 	border-right: none;
 }
 
