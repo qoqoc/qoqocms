@@ -35,6 +35,7 @@ gem 'russian'
 
 group :production do
   gem 'unicorn'
+  gem 'passenger'
 end
 
 group :development do
