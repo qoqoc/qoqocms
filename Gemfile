@@ -33,9 +33,10 @@ gem 'mini_magick'
 
 gem 'russian'
 
+gem 'passenger'
+
 group :production do
   gem 'unicorn'
-  gem 'passenger'
 end
 
 group :development do
