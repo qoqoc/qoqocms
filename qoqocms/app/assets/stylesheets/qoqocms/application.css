@@ -9,5 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+
+ * Default Reset, Typography, Forms, etc.
+ *= require base
+ * 960 Grid + Media Query Layouts
+ *= require skeleton
+ *= require layout
+ *= require boxed
+ *= require_tree ./colors
  */
