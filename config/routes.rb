@@ -1,5 +1,4 @@
-Qoqocms::Application.routes.draw do
-
+Qoqocms::Engine.routes.draw do
   # clearance routes
   resources :passwords, :controller => 'clearance/passwords', :only => [:create, :new]
 
