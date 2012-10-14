@@ -11,7 +11,7 @@ namespace :deploy do
 
   desc "Start application"
   task :start, :roles => :app do
-    run "cd #{latest_release} && bundle exec nohup RAILS_ENV=#{rails_env} passenger start -p #{passenger_port} &"
+    run "cd #{latest_release} && RAILS_ENV=#{rails_env} bundle exec nohup passenger start -p #{passenger_port} &"
   end
 
   desc "Stop application"
