@@ -1,6 +1,6 @@
 class CreatePages < ActiveRecord::Migration
   def change
-    create_table :pages do |t|
+    create_table :qoqocms_pages do |t|
       t.string :title,      :null => false
       t.string :url,        :null => false
       t.text :body,         :null => false, :default => ''
@@ -11,6 +11,6 @@ class CreatePages < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :pages, :url, :unique => true
+    add_index :qoqocms_pages, :url, :unique => true
   end
 end

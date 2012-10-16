@@ -1,6 +1,6 @@
 class CreateUserRequests < ActiveRecord::Migration
   def change
-    create_table :user_requests do |t|
+    create_table :qoqocms_user_requests do |t|
       t.string :name
       t.string :address
       t.string :phones

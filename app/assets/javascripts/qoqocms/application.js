@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require global
+//= require qoqocms/global
 //= require jquery.gmap

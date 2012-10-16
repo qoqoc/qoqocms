@@ -1,6 +1,6 @@
 class CreateSettings < ActiveRecord::Migration
   def change
-    create_table :settings do |t|
+    create_table :qoqocms_settings do |t|
       t.string :name
       t.string :title
       t.string :value

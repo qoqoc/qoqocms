@@ -11,10 +11,10 @@
  *= require_self
 
  * Default Reset, Typography, Forms, etc.
- *= require base
+ *= require qoqocms/base
  * 960 Grid + Media Query Layouts
- *= require skeleton
- *= require layout
- *= require boxed
+ *= require qoqocms/skeleton
+ *= require qoqocms/layout
+ *= require qoqocms/boxed
  *= require_tree ./colors
  */
