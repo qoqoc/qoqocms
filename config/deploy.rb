@@ -48,11 +48,12 @@ namespace :deploy do
     run "chmod -R g+w #{latest_release}" if fetch(:group_writable, true)
 
     run <<-CMD
-      rm -rf #{latest_release}/tmp #{latest_release}/log #{latest_release}/public/system &&
+      rm -rf #{latest_release}/tmp #{latest_release}/log #{latest_release}/public/system #{latest_release}/db/production.sqlite3 &&
       ln -s #{shared_path}/log #{latest_release}/log &&
       ln -s #{shared_path}/tmp #{latest_release}/tmp &&
       ln -s #{shared_path}/public/system #{latest_release}/public/system &&
-      ln -s #{shared_path}/public/uploads #{latest_release}/public/uploads
+      ln -s #{shared_path}/public/uploads #{latest_release}/public/uploads &&
+      ln -s #{shared_path}/production.sqlite3 #{latest_release}/db/production.sqlite3
     CMD
     #run "find #{latest_release} -depth -wholename '*/.svn*' -delete"
   end
@@ -69,5 +70,5 @@ task :copy_database_config, roles => :app do
 end
 
 task :after_update_code, roles => :app do
-  run "cd #{release_path} && rake tmp:create"
+  run "cd #{release_path} && rvm use 1.9.3 do bundle exec rake tmp:create"
 end
