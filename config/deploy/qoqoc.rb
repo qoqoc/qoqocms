@@ -2,6 +2,7 @@ role :web, "qoqoc.ru"   # Your HTTP server, Apache/etc
 role :app, "qoqoc.ru"   # This may be the same as your `Web` server
 role :db,  "qoqoc.ru", :primary => true # This is where Rails migrations will run
 
+set :user, "www"
 set :deploy_to, "/home/www/projects/#{application}"
 
 set :passenger_port, "3001"

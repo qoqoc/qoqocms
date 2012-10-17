@@ -4,7 +4,7 @@ require 'pathname'
 require 'bundler/capistrano'
 require 'capistrano_colors'
 
-set :application, "qoqocms"
+set :application, "stantz20"
 
 # -----------------------------------------------------------------------------------------------
 set :stages, %w(production qoqoc)
@@ -19,7 +19,7 @@ set :bundle_flags, '--quiet'
 set :bundle_without, 'test'
 
 set :scm, :git
-set :repository,  "git://github.com/qoqoc/#{application}.git"
+set :repository,  "git://github.com/qoqoc/qoqocms.git"
 
 set :user, "www"
 set :use_sudo, false
@@ -29,6 +29,11 @@ set :rails_env, :production
 set :shared_children, %w(tmp log public)
 
 after "deploy:update_code", :copy_database_config, :after_update_code
+
+before 'deploy:finalize_update', 'set_current_release'
+task :set_current_release, :roles => :app do
+    set :current_release, latest_release
+end
 
 namespace :deploy do
   task :default do
