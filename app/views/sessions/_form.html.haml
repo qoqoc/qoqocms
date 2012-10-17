@@ -1,0 +1,9 @@
+= form_for :session, :url => session_path do |form|
+  .text_field
+    = form.label :email, 'Логин'
+    = form.text_field :email, :type => "email"
+  .text_field
+    = form.label :password, 'Пароль'
+    = form.password_field :password
+  .submit_field
+    = form.submit "Ок"
