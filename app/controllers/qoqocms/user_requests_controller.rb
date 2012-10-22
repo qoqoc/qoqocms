@@ -13,7 +13,7 @@ module Qoqocms
       if @user_request.save#_with_captcha
         redirect_to @page.full_url, notice: 'Ваша заявка отправлена.'
       else
-        render "pages/index"
+        render "qoqocms/pages/index"
       end
     end
   end
