@@ -1,6 +1,5 @@
-require_dependency "qoqocms/admin/application_controller"
 module Qoqocms
-  class Admin::UserRequestsController < Qoqocms::Admin::ApplicationController
+  class Admin::UserRequestsController < Admin::ApplicationController
     def index
       @user_requests = UserRequest.ordered.paginate(:page => params[:page])
     end

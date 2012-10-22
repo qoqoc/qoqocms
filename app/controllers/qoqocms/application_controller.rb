@@ -1,8 +1,5 @@
 module Qoqocms
-  class ApplicationController < ActionController::Base
-  	include ::Clearance::Authentication
-  	include ApplicationHelper
-
-  	protect_from_forgery
+  class ApplicationController < ::ApplicationController
+    include ApplicationHelper
   end
 end

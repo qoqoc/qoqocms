@@ -1,10 +1,8 @@
-require_dependency "qoqocms/application_controller"
-
 module Qoqocms
 	class PagesController < ApplicationController
 	  def index
-	    url = ::Qoqocms::Page.normalize_url(params[:url] || '')
-	    @page = ::Qoqocms::Page.find_by_url(url)
+	    url = Page.normalize_url(params[:url] || '')
+	    @page = Page.find_by_url(url)
 	    render :action => 'page404'  if @page.nil?
 	  end
 	end

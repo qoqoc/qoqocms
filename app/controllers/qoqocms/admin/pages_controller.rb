@@ -1,6 +1,5 @@
-require_dependency "qoqocms/admin/application_controller"
 module Qoqocms
-  class Admin::PagesController < Qoqocms::Admin::ApplicationController
+  class Admin::PagesController < Admin::ApplicationController
 
     before_filter :get_page, :only => [:show, :edit, :update, :destroy, :order]
 

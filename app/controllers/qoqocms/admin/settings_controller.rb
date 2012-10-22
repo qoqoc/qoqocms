@@ -1,7 +1,6 @@
-require_dependency "qoqocms/admin/application_controller"
 # -*- encoding: utf-8 -*-
 module Qoqocms
-  class Admin::SettingsController < Qoqocms::Admin::ApplicationController
+  class Admin::SettingsController < Admin::ApplicationController
     def index
       @settings = Setting.all
     end

@@ -16,8 +16,8 @@ class CreateRedactorAssets < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_redactor_assetable_type"
-    add_index "redactor_assets", ["assetable_type", "assetable_id"], :name => "idx_redactor_assetable"
+    add_index :redactor_assets, ["assetable_type", "type", "assetable_id"], :name => "idx_redactor_assetable_type"
+    add_index :redactor_assets, ["assetable_type", "assetable_id"], :name => "idx_redactor_assetable"
   end
 
   def self.down

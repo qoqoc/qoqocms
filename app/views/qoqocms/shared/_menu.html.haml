@@ -6,3 +6,5 @@
         %ul
           - page.children.each do |child|
             %li= link_to child.title, child.full_url
+  - if signed_in?
+    %li= link_to 'Админка', admin_root_path

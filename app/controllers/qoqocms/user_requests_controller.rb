@@ -1,4 +1,3 @@
-require_dependency "qoqocms/application_controller"
 # -*- encoding: utf-8 -*-
 module Qoqocms
   class UserRequestsController < ApplicationController
@@ -7,7 +6,7 @@ module Qoqocms
     end
 
     def create
-      @page = ::Qoqocms::Page.find_by_url('/contacts')
+      @page = Page.find_by_url('/contacts')
 
       @user_request = UserRequest.new(params[:user_request])
 

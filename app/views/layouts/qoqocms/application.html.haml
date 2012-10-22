@@ -11,11 +11,11 @@
 
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
 
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "qoqocms/application", :media => "all"
 
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    = javascript_include_tag "application"
+    = javascript_include_tag "qoqocms/application"
     %link{:href => "/favicon.png", :rel => "shortcut icon"}
   %body
     / Wrapper Start
@@ -31,7 +31,7 @@
           .eight.columns
             #logo
               = link_to root_path do
-                = Setting.get('SITE-NAME', 'Управляющая кампания')
+                = Qoqocms::Setting.get('SITE-NAME', 'Управляющая кампания')
                 %span
               / %img{:alt => "logo", :src => "images/logo.png"}/
               / #tagline It's time to impress your visitors!
@@ -43,15 +43,15 @@
               %ul
                 %li
                   %i.mini-ico-envelope>
-                  = mail_to Setting.get('EMAIL', 'info@example.ru')
+                  = mail_to Qoqocms::Setting.get('EMAIL', 'info@example.ru')
                 %li
                   %i.mini-ico-user>
-                  = Setting.get('PHONE', '+7 (999) 999 9999')
+                  = Qoqocms::Setting.get('PHONE', '+7 (999) 999 9999')
         / Header / End
         / Navigation
         .sixteen.columns
           #navigation
-            = render 'shared/menu'
+            = render 'qoqocms/shared/menu'
           .clear
         / Navigation / End
       / 960 Container / End
@@ -65,6 +65,6 @@
           #footer-bottom
             © 2012
             = succeed "." do
-              = link_to Setting.get('SITE-NAME', 'Управляющая кампания'), root_path
+              = link_to Qoqocms::Setting.get('SITE-NAME', 'Управляющая кампания'), root_path
             #scroll-top-top
               %a{:href => "#"}

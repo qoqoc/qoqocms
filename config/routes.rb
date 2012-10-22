@@ -1,17 +1,17 @@
 Qoqocms::Engine.routes.draw do
+# Rails.application.routes.draw do
   # clearance routes
-  resources :passwords, :controller => 'clearance/passwords', :only => [:create, :new]
+  # resources :passwords, :controller => 'clearance/passwords', :only => [:create, :new]
 
-  resource  :session, :controller => 'clearance/sessions', :only => [:create, :new, :destroy]
+  # resource  :session, :controller => 'clearance/sessions', :only => [:create, :new, :destroy]
 
-  resources :users, :controller => 'clearance/users', :only => [:create, :new] do
-    resource :password, :controller => 'clearance/passwords', :only => [:create, :edit, :update]
-  end
+  # resources :users, :controller => 'clearance/users', :only => [:create, :new] do
+  #   resource :password, :controller => 'clearance/passwords', :only => [:create, :edit, :update]
+  # end
 
-  match 'sign_in' => 'clearance/sessions#new', :as => 'sign_in'
-  match 'sign_out' => 'clearance/sessions#destroy', :as => 'sign_out', :via => :delete
-  # match 'sign_up' => 'clearance/users#new', :as => 'sign_up'
-
+  # match 'sign_in' => 'clearance/sessions#new', :as => 'sign_in'
+  # match 'sign_out' => 'clearance/sessions#destroy', :as => 'sign_out', :via => :delete
+  # namespace :qoqocms do
   resources :user_requests, :only => [ :index, :create ]
 
   namespace :admin do
@@ -26,7 +26,8 @@ Qoqocms::Engine.routes.draw do
     root :to => 'pages#index'
   end
 
-  match '/:url' => 'pages#index', :constraints => {:url => /.*/}
+  match '/:url' => 'pages#index', :constraints => {:url => /(?!.*?(sign_in|sign_out|session|passwords)).*/}
 
   root :to => "pages#index"
 end
+

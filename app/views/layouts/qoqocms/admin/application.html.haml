@@ -9,8 +9,8 @@
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
 
     / = javascript_include_tag "application"
-    = javascript_include_tag "admin/application"
-    = stylesheet_link_tag "admin/application", :media => "all"
+    = javascript_include_tag "qoqocms/admin/application"
+    = stylesheet_link_tag "qoqocms/admin/application", :media => "all"
     / Le fav and touch icons
     %link{:href => "/favicon.png", :rel => "shortcut icon"}
   %body
@@ -27,10 +27,10 @@
               / %li= link_to 'Портфолио', admin_portfolio_index_path
               %li= link_to 'Заявки', admin_user_requests_path
               %li= link_to 'Настройки', admin_settings_path
-              %li= link_to 'Выход', sign_out_path, :method => :delete
+              %li= link_to 'Выход', main_app.sign_out_path, :method => :delete
 
     .container-fluid
-      = render 'shared/message'
+      = render 'qoqocms/shared/message'
       .row-fluid
         .span12
           = yield

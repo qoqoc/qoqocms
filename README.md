@@ -13,9 +13,13 @@ rake qoqocms:install:migrations
 rake db:migrate
 rm public/index.html
 
+add "include ::Clearance::Authentication"
+
 == TODO
 
 * generator:
   - routes
   - migrations
   - initializers  (перенести из проекта)
+  - db:seed
+  - views copy
